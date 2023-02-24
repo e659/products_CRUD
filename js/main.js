@@ -12,11 +12,13 @@ var productName = document.getElementById("product-name"),
   PPriceAlert = document.getElementById("PPriceAlert"),
   PCategoryAlert = document.getElementById("PCategoryAlert"),
   PDescriptionAlert = document.getElementById("PDescriptionAlert"),
-  productsArr = [],
+  productsArr,
   currentIndex;
 
 //Update Table After Refresh -- from storage:
-if (localStorage.length) {
+if (localStorage.getItem("ProductsList") == null) {
+  productsArr = [];
+} else {
   productsArr = JSON.parse(localStorage.getItem("ProductsList"));
   display();
 }
